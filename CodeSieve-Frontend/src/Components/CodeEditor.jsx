@@ -4,7 +4,7 @@ export default function CodeEditor({ value, onChange }) {
   return (
     <div className="editor-wrapper">
       <Editor
-        height="100%"
+        height="520px"
         defaultLanguage="javascript"
         theme="vs-dark"
         value={value}

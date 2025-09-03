@@ -5,10 +5,12 @@ const QuestionSchema=mongoose.Schema({
     description:String,
     starterCode:String,
     difficulty:{type:String,enum:['easy','medium','hard'],default:'easy'},
-    testCases:{
-        input:String,
-        expectedOutput:String
-    },
+    testCases: [
+    {
+        input: { type: String, required: true },
+        expectedOutput: { type: String, required: true }
+    }
+],
     createdBy:{type:mongoose.Schema.Types.ObjectId,ref:"User"}
 },{timestamps:true})
 

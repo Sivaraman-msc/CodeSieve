@@ -1,20 +1,19 @@
-import axios from 'axios'
-import cookie from 'js-cookie'
+import axios from 'axios';
 
-const BASE_URL='http://localhost:3000/CodeSieve/Data'
+const BASE_URL = 'http://localhost:3000/CodeSieve/Data';
 
-const getAuthHeader=()=>({
-    headers:{
-        authorization:`Bearer ${cookie.get('token')}`
-    }
-})
+const getAuthHeader = () => ({
+  headers: {
+    Authorization: `Bearer ${localStorage.getItem('token')}`,
+  },
+});
 
-export const ViewSubmissionService=async()=>{
-    try{
-        const res=await axios.get(`${BASE_URL}/submissions`,getAuthHeader())
-    return res.data
-    }catch(err){
-        console.log(err)
-        throw err
-    }
-}
+export const ViewSubmissionService = async () => {
+  try {
+    const res = await axios.get(`${BASE_URL}/submissions`, getAuthHeader());
+    return res.data;
+  } catch (err) {
+    console.error('ViewSubmissionService Error:', err);
+    throw err;
+  }
+};

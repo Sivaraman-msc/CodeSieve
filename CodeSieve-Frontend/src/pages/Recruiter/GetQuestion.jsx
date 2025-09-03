@@ -1,27 +1,32 @@
-import React, { useEffect, useState } from 'react';
-import { GetQuestionService } from '../../Service/QuestionService';
+import React, { useEffect, useState } from "react";
+import { GetQuestionService } from "../../Service/QuestionService";
 
 export default function GetQuestion() {
   const [question, setQuestion] = useState([]);
 
   useEffect(() => {
     GetQuestionService()
-      .then(res => setQuestion(res.question))
-      .catch(err => console.log(err));
+      .then((res) => setQuestion(res.question))
+      .catch((err) => console.log(err));
   }, []);
 
   return (
-    <div className="w-full flex justify-center px-2">
-      <div className="w-full max-w-4xl bg-white rounded-xl shadow-lg p-6 border border-gray-200 text-left">
-        <h2 className="text-xl font-semibold mb-5 text-gray-800 border-b pb-2">All Questions</h2>
-        <div className="space-y-4 max-h-[400px] overflow-y-auto pr-2">
-          {question.map((q, i) => (
-            <div key={q._id} className="bg-gray-50 hover:bg-gray-100 transition p-4 rounded-lg border border-gray-100 shadow-sm" >
-              <p><span className="font-medium text-gray-700">Title:</span> {q.title}</p>
-              <p><span className="font-medium text-gray-700">Description:</span> {q.description}</p>
-              <div className="mt-2">
-                <p className="font-medium text-gray-700 mb-1">Starter Code:</p>
-                <pre className="bg-gray-100 p-2 rounded text-sm overflow-x-auto text-gray-800">{q.starterCode}</pre>
+    <div className="w-full flex justify-center px-2 md:px-4">
+      <div className="w-full max-w-3xl bg-white rounded-2xl shadow-md p-4 md:p-6 border border-gray-100">
+        <div className="flex items-center justify-between mb-4">
+          <h2 className="text-lg md:text-2xl font-bold text-gray-800"> All Coding Questions </h2>
+          <span className="text-xs md:text-sm text-gray-500">
+            {question.length} Questions
+          </span>
+        </div>
+        <div className="space-y-4 text-left max-h-[220px] md:max-h-[300px] overflow-y-auto pr-2">
+          {question.map((q) => (
+            <div key={q._id} style={{ background: "linear-gradient(90deg, #6dd5ed, #2193b0)" }} className="p-4 rounded-xl border border-gray-200 hover:shadow-md transition" >
+              <h3 className="text-base md:text-lg font-semibold text-white mb-1"> {q.title} </h3>
+              <p className="text-white text-xs md:text-sm leading-relaxed mb-2">{q.description} </p>
+              <div>
+                <p className="text-xs md:text-sm font-medium text-white mb-1"> Starter Code: </p>
+                <pre className="bg-gray-900 text-green-300 p-2 rounded-lg text-xs md:text-sm overflow-x-auto"> {q.starterCode}</pre>
               </div>
             </div>
           ))}

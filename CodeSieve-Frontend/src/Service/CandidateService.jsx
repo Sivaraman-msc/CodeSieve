@@ -1,11 +1,10 @@
 import axios from 'axios';
-import cookie from 'js-cookie';
 
 const BASE_URL = 'http://localhost:3000/CodeSieve/Submission';
 
 const getAuthHeader = () => ({
   headers: {
-    authorization: `Bearer ${cookie.get('token')}`,
+    authorization: `Bearer ${localStorage.getItem('token')}`
   },
 });
 
@@ -31,7 +30,7 @@ export const GetSubmissionById = async (submissionId) => {
 
 export const SaveAnswerCode = async ({ submissionId, questionId, code }) => {
   try {
-    const res = await axios.post(`${BASE_URL}/saveTest`,{ submissionId, questionId, code },getAuthHeader());
+    const res = await axios.post(`${BASE_URL}/saveTest`, { submissionId, questionId, code }, getAuthHeader());
     return res.data;
   } catch (err) {
     console.error('Error saving answer:', err);
@@ -41,7 +40,7 @@ export const SaveAnswerCode = async ({ submissionId, questionId, code }) => {
 
 export const SubmitTest = async ({ submissionId }) => {
   try {
-    const res = await axios.post(`${BASE_URL}/submitTest`,{ submissionId },getAuthHeader());
+    const res = await axios.post(`${BASE_URL}/submitTest`, { submissionId }, getAuthHeader());
     return res.data;
   } catch (err) {
     console.error('Error submitting test:', err);

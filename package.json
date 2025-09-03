@@ -1,0 +1,26 @@
+{
+  "name": "codesieve",
+  "version": "1.0.0",
+  "description": "---",
+  "homepage": "https://github.com/Sivaraman-msc/CodeSieve#readme",
+  "bugs": {
+    "url": "https://github.com/Sivaraman-msc/CodeSieve/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sivaraman-msc/CodeSieve.git"
+  },
+  "license": "ISC",
+  "author": "Sivaraman S",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "npm start --prefix CodeSieve-Backend",
+    "client": "npm run dev --prefix CodeSieve-Frontend",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "concurrently": "^9.2.1"
+  }
+}

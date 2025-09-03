@@ -95,8 +95,24 @@ npm run seed
 npm start
 
 # Open a new terminal, install frontend dependencies
-cd ../CodeSieve-Frontend
+cd  CodeSieve-Frontend
 npm install
 
 # Start the frontend development server
 npm run dev
+
+#Option 2 : You can run directly on root folder CodeSieve
+npm start
+
+---
+
+## Environment Setup
+
+Create a `.env` file inside the **CodeSieve-Backend** folder with the following keys:
+
+```env
+PORT=3000
+MONGO_URI=your_mongo_connection_string
+JWT_KEY=your_secret_key
+EMAIL_USER=your_email@example.com
+EMAIL_PASS=your_email_password

@@ -64,6 +64,14 @@ Built with modern tools like React, Node.js, and MongoDB, CodeSieve provides a r
 
 ---
 
+## Data
+
+Role	      Email	              Password
+Recruiter  siva@recruiter.com   12345678
+	
+Candidate	 ram@gmail.com        12345678
+---
+
 ## Quick Start
 
 Run these commands to quickly set up and start the project:

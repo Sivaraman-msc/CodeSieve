@@ -66,9 +66,12 @@ Built with modern tools like React, Node.js, and MongoDB, CodeSieve provides a r
 
 ## Data
 
-Recruiter - email:  siva@recruiter.com - password:  12345678
+cd CodeSieve-Backend
+npm run seed 
+
+Role : Recruiter - email:  siva@recruiter.com - password:  12345678
 	
-Candidate	- email:  ram@gmail.com - password :  12345678
+Role : Candidate	- email:  ram@gmail.com - password :  12345678
 
 ---
 
